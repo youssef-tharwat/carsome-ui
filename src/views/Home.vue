@@ -13,6 +13,9 @@ export default {
   name: "Home",
   components: {
     HelloWorld
+  },
+  mounted() {
+    this.$http.get("/api/ping").then(res => alert(res));
   }
 };
 </script>

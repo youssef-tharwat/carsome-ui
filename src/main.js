@@ -5,6 +5,14 @@ import store from "./store";
 
 Vue.config.productionTip = false;
 
+// axios
+import axios from "./utils/axios";
+Vue.prototype.$http = axios;
+
+import VueProgressBar from "vue-progressbar";
+import progressBarOptions from "./utils/progressbar";
+Vue.use(VueProgressBar, progressBarOptions);
+
 new Vue({
   router,
   store,
