@@ -1,9 +1,19 @@
 <template>
   <div id="app">
-    <router-view />
+    <layout>
+      <router-view />
+    </layout>
   </div>
 </template>
-
+<script>
+import Layout from "./layouts/Application";
+export default {
+  name: "App",
+  components: {
+    Layout
+  }
+};
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
