@@ -13,7 +13,7 @@ export default {
     HomeComponent
   },
   mounted() {
-    this.$http.get("/api/ping").then(res => console.log(res));
+    this.$http.get("ping");
   }
 };
 </script>

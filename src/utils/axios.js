@@ -10,7 +10,10 @@ service.interceptors.request.use(
   serviceConfig => {
     // app.$Progress.start();
 
-    serviceConfig.headers.common["Content-Type"] = "application/json";
+    // serviceConfig.headers.common["Content-Type"] = "application/json";
+    serviceConfig.headers.common["X-Requested-With"] = "XMLHttpRequest";
+    serviceConfig.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+    serviceConfig.headers.common.crossDomain = true;
 
     return serviceConfig;
   },

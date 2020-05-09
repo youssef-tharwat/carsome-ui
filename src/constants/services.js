@@ -1,1 +1,1 @@
-export const API_PING = "ping";
+export const API_BOOKING_CREATE = "booking/create";

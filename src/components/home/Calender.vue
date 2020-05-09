@@ -1,5 +1,6 @@
 <template>
   <div class="demo-app w-full">
+    <button class="button" @click="handleDateClick">click</button>
     <FullCalendar
       class="demo-app-calendar"
       ref="fullCalendar"
@@ -22,6 +23,8 @@ import FullCalendar from "@fullcalendar/vue";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
+
+import { API_BOOKING_CREATE } from "@/constants/services";
 
 export default {
   name: "HomeCalender",
@@ -51,21 +54,21 @@ export default {
       let calendarApi = this.$refs.fullCalendar.getApi(); // from the ref="..."
       calendarApi.gotoDate("2000-01-01"); // call a method on the Calendar object
     },
-    handleDateClick(arg) {
-      if (confirm("Would you like to add an event to " + arg.dateStr + " ?")) {
-        this.calendarEvents.push({
-          // add new event data
-          title: "New Event",
-          start: arg.date,
-          allDay: arg.allDay
-        });
-      }
+    handleDateClick() {
+      this.$http.post(API_BOOKING_CREATE, {}).then(response => console.log(response));
+      // if (confirm("Would you like to add an event to " + arg.dateStr + " ?")) {
+      //   this.calendarEvents.push({
+      //     // add new event data
+      //     title: "New Event",
+      //     start: arg.date,
+      //     allDay: arg.allDay
+      //   });
+      // }
     },
     pusherInit() {
-      this.$pusher.subscribe("bookings", channel => {
-        channel.bind("booking-created", response => {
-          alert(response);
-        });
+      let channel = this.$pusher.subscribe("booking-channel");
+      channel.bind("booking-created", response => {
+        alert(response);
       });
     }
   },

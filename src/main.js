@@ -21,9 +21,8 @@ Vue.use(Buefy);
 // Tailwind utils
 import "@/assets/scss/tailwind.scss";
 
-import pusherConfig from "./utils/pusher";
-console.log(pusherConfig);
-Vue.use(require("vue-pusher"), pusherConfig);
+import pusher from "./utils/pusher";
+Vue.prototype.$pusher = pusher;
 
 new Vue({
   router,
