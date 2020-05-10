@@ -17,20 +17,19 @@ service.interceptors.request.use(
 
     return serviceConfig;
   },
-  error => {
+  () => {
     // app.$Progress.fail();
-    Promise.reject(error);
   }
 );
 
 // response interceptor
-service.interceptors.response.use(
-  () => {
-    // app.$Progress.finish();
-  },
-  () => {
-    // app.$Progress.fail();
-  }
-);
+// service.interceptors.response.use(
+//   () => {
+//     // app.$Progress.finish();
+//   },
+//   () => {
+//     // app.$Progress.fail();
+//   }
+// );
 
 export default service;
