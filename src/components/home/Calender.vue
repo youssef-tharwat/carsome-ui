@@ -1,8 +1,7 @@
 <template>
-  <div class="demo-app w-full">
-    <button @click="refreshSlots">refresh</button>
+  <div class="calender-container w-full">
     <FullCalendar
-      class="demo-app-calendar"
+      class="fullCalendar"
       ref="fullCalendar"
       defaultView="resourceTimeGridDay"
       :header="{
@@ -140,24 +139,23 @@ export default {
 @import "~@fullcalendar/core/main.css";
 @import "~@fullcalendar/timegrid/main.css";
 
-.demo-app {
+.calender-container {
   font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
   font-size: 14px;
 }
 
-.demo-app-top {
-  margin: 0 0 3em;
-}
-
-.demo-app-calendar {
+.fullCalendar {
   margin: 0 auto;
   max-width: 900px;
 }
-.fc-today {
-  background: #fff !important;
-  border-top: 1px solid #ddd !important;
-  font-weight: bold;
+.fc-resourceTimeGridDay-view {
+  .fc-today {
+    background: #fff !important;
+    border-top: 1px solid #ddd !important;
+    font-weight: bold;
+  }
 }
+
 .fc-nonbusiness {
   cursor: not-allowed;
 }
@@ -168,5 +166,8 @@ export default {
   .fc-highlight {
     background: transparent;
   }
+}
+.fc-time-grid .fc-event-container {
+  margin: 0 !important;
 }
 </style>

@@ -40,9 +40,11 @@ export default {
         axios
           .post(API_BOOKING_CREATE, payload)
           .then(response => {
-            if (response.status === 200 && response.data.data) {
-              console.log(dispatch);
+            if (response.data.status === "ok") {
+              dispatch("GET");
               resolve(200);
+            } else {
+              resolve(response);
             }
           })
           .catch(error => {

@@ -11,9 +11,6 @@ export default {
   name: "Home",
   components: {
     HomeComponent
-  },
-  mounted() {
-    this.$http.get("ping");
   }
 };
 </script>
